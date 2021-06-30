@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond $1  !^(index\.php|asset|images|js|css|fonts|vendor|favicon.png)
+RewriteCond %(REQUEST_FILENAME) !-f
+RewriteCond %(REQUEST_FILENAME) !-d
+RewriteRule ^(.*)$ ./index.php/$1 [L]
+
+RewriteCond %{HTTP_HOST} ^www.onasvtu\.com.ng [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.onasvtu.com.ng [R,L]
